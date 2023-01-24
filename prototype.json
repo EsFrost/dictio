@@ -1,0 +1,8 @@
+[
+    {
+        "id"                    : "string(with uuid)",
+        "word"                  : "string",
+        "translation"           : "string",
+        "chapter"               : "string/number" 
+    }
+]

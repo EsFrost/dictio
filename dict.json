@@ -1,0 +1,32 @@
+[
+    {
+        "id"            : "939554d6-99af-11ed-a8fc-0242ac120002",
+        "word"          : "l'enfance",
+        "translation"   : "the childhood",
+        "chapter"       : "1"
+    },
+    {
+        "id"            : "c5fad72a-99af-11ed-a8fc-0242ac120002",
+        "word"          : "se décomposer",
+        "translation"   : "decompose",
+        "chapter"       : "1"
+    },
+    {
+        "id"            : "25751cc4-99b0-11ed-a8fc-0242ac120002",
+        "word"          : "plusieurs",
+        "translation"   : "many",
+        "chapter"       : "1"
+    },
+    {
+        "id"            : "4e1792f6-99b0-11ed-a8fc-0242ac120002",
+        "word"          : "le stade",
+        "translation"   : "the stadium",
+        "chapter"       : "1"
+    },
+    {
+        "id"            : "06324e2f-bd8f-4954-aca3-3a7e795a225b",
+        "word"          : "le nouveau né",
+        "translation"   : "the newborn",
+        "chapter"       : "1"
+    }
+]

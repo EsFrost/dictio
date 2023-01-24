@@ -1,0 +1,1 @@
+add searchbar in the administration module

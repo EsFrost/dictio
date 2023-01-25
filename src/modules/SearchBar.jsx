@@ -1,15 +1,26 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Data from "../modules/Example"
-import data from '../../dict.json'
+import Axios from 'axios'
 
 const SearchBar = () => {
     
+    const [dictioList, setDictioList] = useState([])
     const [query, setQuery] = useState("")
+    
+    const data = () => {
+        Axios.get('http://localhost:5174/getdata').then((response) => {
+            setDictioList(response.data)
+        })
+    }
+
+    useEffect(() => {
+        data()
+    }, [])
 
     return (
         <>
-            <input placeholder="Search dictionary" onChange={(event => setQuery(value => event.target.value))} />
-            <Data dict={data} queryString={query} />
+            <input placeholder="Search dictionary" onChange={e => setQuery(e.target.value)} />
+            <Data dict={dictioList} queryString={query} />
         </>
     )
 }

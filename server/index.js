@@ -36,24 +36,48 @@ app.post('/delete', (req,res) => {
     })
 })
 
-/*app.post('/create', (req, res) => {
-    const id = req.body.id
+app.post('/create', (req, res) => {
+    const id = req.body.id  
     const word = req.body.word
-    const translation = req.body.translation
-    const chapter = req.body.chapter
+    const translate = req.body.translate
+    const chapter = parseInt(req.body.chapter)
+    const original = req.body.original
 
-    db.query('INSERT INTO dictio (id, word, translation, chapter) VALUES (?, ?, ?, ?)', [id, word, translation, chapter],
-        (err, result) => {
+    if (original === '') {
+        db.query('INSERT INTO dictio (id, word, translate, chapter) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE translate = \''+translate+'\', chapter = \''+chapter+'\'', [id, word, translate, chapter],
+            (err, result) => {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    res.send('Values inserted')
+                }
+        })
+    }
+    else {
+        db.query('UPDATE dictio SET word=\''+word+'\', translate=\''+translate+'\', chapter=\''+chapter+'\' WHERE word=\''+original+'\'', (err, result) => {
             if (err) {
                 console.log(err)
             }
             else {
-                res.send('Values inserted')
+                res.send('Values updated')
             }
-        }
-    )
+        })
+    }
+    
 })
-*/
+
+
+
+app.get('/editreq/:testword', (req, res) => {
+    db.query('SELECT * FROM dictio WHERE word = \''+req.params.testword+'\'', (err, result) => {
+        if (err) console.log(err)
+        else {
+            res.send(result)
+        }
+    })
+})
+
 
 app.listen(5174, () => {
     console.log('Server is running on port 5174')

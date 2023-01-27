@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react"
 import Data from "../modules/ExampleAdmin"
+import EntryForm from '../modules/EntryForm'
 import Axios from 'axios'
 
 const SearchBarAdmin = () => {
@@ -19,6 +20,7 @@ const SearchBarAdmin = () => {
 
     return (
         <>
+            <EntryForm />
             <input placeholder="Search dictionary" onChange={(event => setQuery(value => event.target.value))} />
             <Data dict={dictioList} queryString={query} />
         </>

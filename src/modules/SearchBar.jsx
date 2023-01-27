@@ -15,7 +15,7 @@ const SearchBar = () => {
 
     useEffect(() => {
         data()
-    }, [])
+    }, [dictioList])
 
     return (
         <>

@@ -12,23 +12,6 @@ const Data = ({dict, queryString}) => {
       if (cStatus === 'delete') {
         Axios.post('http://localhost:5174/delete', {id: getId})
       }
-      /*else if (cStatus === 'edit') {
-        dict.filter(item => {
-          if (item.id === getId) {
-            let wordInit = item.word
-            let translateInit = item.translate
-            let chapterInit = item.chapter
-
-            Axios.post('http://localhost:5174/editreq', {
-              id: getId,
-              word: wordInit,
-              translate: translateInit,
-              chapter: chapterInit
-            })
-          }
-          
-        })
-      }*/
 
       setCStatus('')
       setGetId('')

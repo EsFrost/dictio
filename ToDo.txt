@@ -1,3 +1,5 @@
 exercises and then css
 or css and then exercises
 SOOOOOOON
+
+find a way to mix word and translate in randArray and compare results to originalArray

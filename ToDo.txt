@@ -2,4 +2,5 @@ exercises and then css
 or css and then exercises
 SOOOOOOON
 
-find a way to mix word and translate in randArray and compare results to originalArray
+check if class word in element and match only with class translate
+if word has same translate then correct

@@ -4,16 +4,27 @@ import { v4 as uuidv4 } from 'uuid'
 
 const ExerciseOne = () => {
     const [selectedChapter, setSelectedChapter] = useState('1')
-    const [originalArray, setOriginalArray] = useState([])
     const [clicked, setClicked] = useState(0)
     const [score, setScore] = useState(0)
     const [randArray, setRandArray] = useState([])
     const mutRef = useRef(randArray)
+    const [randoArray, setRandoArray] = useState([])
 
     useEffect(() => {
         mutRef.current = randArray
-        if (mutRef.current.length !== 0) console.log(mutRef.current[0].word)
+        let temp = []
+        let tempF = []
+        if (mutRef.current.length !== 0) {
+            temp = [...mutRef.current]
+            for (let x = 0; x < mutRef.current.length; x++) {
+                let i = Math.floor(Math.random() * temp.length)
+                tempF[x] = temp[i].translate
+                temp.splice(i, 1)
+            }
+            setRandoArray(tempF)
+        }
     }, [randArray])
+
 
     const handleChange = (e) => {
         setSelectedChapter(val => e.target.value)
@@ -22,7 +33,6 @@ const ExerciseOne = () => {
     const submitValue = () => {
         setClicked(val => selectedChapter)
         Axios.get(`http://localhost:5174/exercise/${parseInt(selectedChapter)}`).then((response) => {
-            setOriginalArray(val => response.data)
             setRandArray(val => response.data)
         })
         return
@@ -44,8 +54,8 @@ const ExerciseOne = () => {
             i++
             return (
                 <div key={uuidv4()} className='dataRow'>
-                    <div key={uuidv4()} className='wordCol' id={`word${i}`}>{item.word}</div>
-                    <div key={uuidv4()} className='translateCol' id={`translate${i}`}>{item.translate}</div>
+                    <div key={uuidv4()} className='wordCol' id={`word${i}`}>{item.word}</div>   
+                    <div key={uuidv4()} className='translateCol' id={`translate${i}`}>{randoArray[i-1]}</div>
                 </div>
             )
         })}

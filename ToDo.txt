@@ -2,5 +2,5 @@ exercises and then css
 or css and then exercises
 SOOOOOOON
 
-check if class word in element and match only with class translate
-if word has same translate then correct
+repeating code needs to be turned to function
+start exercise two

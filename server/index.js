@@ -79,7 +79,7 @@ app.get('/editreq/:testword', (req, res) => {
 })
 
 app.get(`/exercise/:selectedChapter`, (req, res) => {
-    db.query('SELECT * FROM dictio WHERE chapter = \''+req.params.selectedChapter+'\' ORDER BY RAND() LIMIT 20', (err, result) => {
+    db.query('SELECT * FROM dictio WHERE chapter = \''+req.params.selectedChapter+'\' ORDER BY RAND() LIMIT 10', (err, result) => {
         if (err) console.log(err)
         else {
             res.send(result)
